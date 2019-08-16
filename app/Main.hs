@@ -38,7 +38,10 @@ drawConsole (w, h) fontSize console =
 
 
 handleEvent :: Event -> World -> World
-handleEvent (EventKey (Char c) Down _ _) world = typeChar c world
+handleEvent (EventKey (Char c) Down _ _) world =
+  case c of
+    '\b'      -> backspace world
+    otherwise -> typeChar c world
 handleEvent (EventKey (SpecialKey key) Down _ _) world =
   if notSpecial key
   then typeChar (keyToChar key) world
@@ -46,7 +49,6 @@ handleEvent (EventKey (SpecialKey key) Down _ _) world =
     KeyEnter     -> newLine world
     KeyBackspace -> backspace world
     KeyDelete    -> backspace world
-    KeyTab       -> backspace world
     otherwise    -> echoString (show key) world
   where
     notSpecial key = key == KeySpace
