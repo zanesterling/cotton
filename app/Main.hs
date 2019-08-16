@@ -18,18 +18,21 @@ main = do
        tickWorld
   where stepsPerSecond = 100
 
-lineHeight = 100
+lineHeight = 10
 linePadding = lineHeight * 0.3
 
 drawWorld :: (Int, Int) -> World -> Picture
-drawWorld (screenWidth, screenHeight) world =
-  translate linePadding linePadding $ pictures $ map drawLine $ zip iota $ console world
+drawWorld (w, h) world = translate (- fromIntegral w/2) (- fromIntegral h/2) consolePicture
+  where consolePicture = drawConsole (fromIntegral w, fromIntegral h) 10 $ console world
+
+drawConsole :: (Float, Float) -> Float -> [String] -> Picture
+drawConsole (w, h) fontSize console =
+  pictures $ map drawLine $ zip iota $ console
   where
-    drawLine (n, line) = newline n $ toBottomLeft $ color white $ text line
-    toBottomLeft picture =
-      translate (- (fromIntegral screenWidth) / 2)
-                (- (fromIntegral screenHeight) / 2) $ picture
-    newline n = translate 0 ((lineHeight + linePadding) * fromIntegral n)
+    drawLine (n, line) = newline n $ scale sc sc $ color white $ text line
+    sc = fontSize * 0.01
+    pad size = size * 1.3
+    newline n = translate 0 (pad fontSize * fromIntegral n)
     iota = let i n = n:i (n+1) in i 0
 
 
