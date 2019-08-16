@@ -7,8 +7,9 @@ import Graphics.Gloss.Interface.IO.Interact
 
 main :: IO ()
 main = do
-  screenSize <- getScreenSize
-  play FullScreen
+  (w, h) <- getScreenSize
+  let screenSize = (w - 200, h - 200)
+  play (InWindow "foo" screenSize (10, 10))
        black
        stepsPerSecond
        (World ["foo", "bar"])
@@ -39,9 +40,10 @@ handleEvent (EventKey (SpecialKey key) Down _ _) world =
   if notSpecial key
   then typeChar (keyToChar key) world
   else case key of
-    -- KeyEnter     -> newLine world
-    -- KeyBackspace -> backspace world
-    -- KeyDelete    -> backspace world
+    KeyEnter     -> newLine world
+    KeyBackspace -> backspace world
+    KeyDelete    -> backspace world
+    KeyTab       -> backspace world
     otherwise    -> echoString (show key) world
   where
     notSpecial key = key == KeySpace
