@@ -4,6 +4,9 @@
   programming?
 
   Monochrome big-pixel graphics. You don't need to be able to draw to have fun.
+  
+  Low hardware limits to make things interesting. Doing complex stuff should not
+  be trivial :-)
 
   Restylable consoles from Ender's Game. Why shouldn't you be able to receive
   messages and display them bouncing around the border of the screen? The screen
