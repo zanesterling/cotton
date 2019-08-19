@@ -22,8 +22,11 @@ lineHeight = 10
 linePadding = lineHeight * 0.3
 
 drawWorld :: (Int, Int) -> World -> Picture
-drawWorld (w, h) world = translate (- fromIntegral w/2) (- fromIntegral h/2) consolePicture
-  where consolePicture = drawConsole (fromIntegral w, fromIntegral h) 10 $ console world
+drawWorld (w, h) world =
+  translate linePadding linePadding $
+  translate (- fromIntegral w/2) (- fromIntegral h/2) $
+  consolePicture
+  where consolePicture = drawConsole (fromIntegral w, fromIntegral h) lineHeight $ console world
 
 drawConsole :: (Float, Float) -> Float -> [String] -> Picture
 drawConsole (w, h) fontSize console =
