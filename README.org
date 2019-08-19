@@ -1,0 +1,35 @@
+* cotton
+  Playing with the Apple II at the computer history museum felt cool. Things
+  were so simple back then. Can I give a similar feeling of simplicity and toy
+  programming?
+
+  Monochrome big-pixel graphics. You don't need to be able to draw to have fun.
+
+  Restylable consoles from Ender's Game. Why shouldn't you be able to receive
+  messages and display them bouncing around the border of the screen? The screen
+  is a shared resource. The console is a shared resource. Background programs
+  can manipulate both. How do you avoid the flickering that happens when two
+  programs both draw to the screen? Need some consistent priority.
+
+  1. notification (on top)
+  2. application (main body)
+  3. daemon (no show)
+
+  What makes a wizard different from a programmer? Cost of wizardry. If a
+  programmer has the control structure in their head, it's easy to put down. A
+  wizard who knows a Great Spell still has to sacrifice to enact it. Or spells
+  have Side Effects(TM) that build up over multiple castings and must be dealt
+  with (flushed purged consumed mopped up) or Bad Things will Happen. The purely
+  functional wizard is all-powerful (ecological reduce reuse recycle).
+
+  Wyrd Energies build up over multiple castings. A Tidy Wizard deals with them
+  as they go. A Desperate Wizard lets them build up for the advantage that they
+  have in casting spells faster. Some sort of meters or discrete elements that
+  build up and *interact with each other*. The danger of letting them ride is
+  violent interaction (antimatter x matter with a side of Dark Plutonium).
+
+  Shooting marbles into a box and if they touch other marbles they interact.
+  Throwing dice into a box and hoping they don't bump the other ones.
+
+  Wyrd energies are scary because they're unpredictable. Each one makes it
+  harder to predict what something simple will do.
